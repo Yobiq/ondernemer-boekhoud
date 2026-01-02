@@ -143,8 +143,8 @@ KPI monitoring:
 
 ```bash
 # 1. Clone repository
-git clone git@github.com:Yobiq/marcofic-boek.git
-cd marcofic-boek
+git clone git@github.com:Yobiq/ondernemer-boekhoud.git
+cd ondernemer-boekhoud
 
 # 2. Environment configureren
 cp .env.example .env
@@ -293,11 +293,11 @@ Het systeem leert automatisch:
 
 ## 🔗 Repository
 
-**GitHub:** [marcofic-boek](https://github.com/Yobiq/marcofic-boek)
+**GitHub:** [ondernemer-boekhoud](https://github.com/Yobiq/ondernemer-boekhoud)
 
 **SSH Clone:**
 ```bash
-git clone git@github.com:Yobiq/marcofic-boek.git
+git clone git@github.com:Yobiq/ondernemer-boekhoud.git
 ```
 
 ---
