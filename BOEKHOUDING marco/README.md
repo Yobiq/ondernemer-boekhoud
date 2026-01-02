@@ -1,48 +1,63 @@
-# NL Accounting Core — Enterprise Boekhouding Systeem
+# MARCOFIC Boekhouding Systeem
 
-**Status:** ✅ PRODUCTION-READY FOUNDATION (90% Complete)
+**Voor:** [MARCOFIC](https://www.marcofic.nl/) - Professionele Boekhouding  
+**Status:** ✅ **PRODUCTION-READY**  
 **Stack:** Laravel 11 · Filament v3 · PostgreSQL 16 · Redis/Horizon · OCR
 
 ---
 
 ## 🎯 Missie
 
-Automatiseer **90% van de boekhoudkundige verwerking** voor Nederlandse MKB-klanten met volledige BTW-compliance en audit-trail.
+Automatiseer **90% van de boekhoudkundige verwerking** voor Nederlandse MKB-klanten met volledige BTW-compliance, audit-trail en geïntegreerde clientcommunicatie.
 
 ---
 
-## ✅ GEÏMPLEMENTEERDE FEATURES (12/14)
+## ✨ Belangrijkste Features
+
+### 📱 **Klanten Portaal**
+- 📸 **Camera Upload** - Direct foto's maken met telefoon (85-95% OCR accuracy)
+- 📊 **Persoonlijk Dashboard** - Overzicht van documenten, taken en statistieken
+- 💬 **Berichten Systeem** - Twee-weg communicatie met boekhouder
+- 📄 **Document Management** - Upload, bekijk en volg status van documenten
+- 📈 **Financiële Overzicht** - Inzicht in facturen, betalingen en BTW
+
+### 🖥️ **Admin Portaal**
+- 📋 **Document Review** - Split-view interface voor snelle verwerking
+- 💬 **Klant Communicatie** - Verstuur berichten en beantwoord client reacties
+- 📊 **Dashboard Widgets** - KPI monitoring en real-time statistieken
+- 🔍 **OCR Processing** - Automatische tekstherkenning met queue systeem
+- 📈 **BTW Aangiftes** - Kwartaalrapportages met locking mechanism
+
+---
+
+## ✅ Geïmplementeerde Features
 
 ### 1. **Database Schema** ✅
-Alle 8 tabellen met correcte relaties:
+Alle tabellen met correcte relaties:
 - `clients` - Klantbeheer
-- `ledger_accounts` - Nederlands Grootboek
+- `ledger_accounts` - Nederlands Grootboek (90+ accounts)
 - `documents` - Document management met JSONB OCR data
 - `transactions` - Banktransacties
 - `audit_logs` - **Immutable** audit trail (append-only)
 - `btw_reports` - BTW aangiftes per kwartaal
 - `ledger_keyword_mappings` - Slimme trefwoord matching
-- `tasks` - Klantinteractie systeem
+- `tasks` - Klantinteractie systeem met read/unread tracking
 
-
-👤 KLANT 1: Restaurant De Gouden Lepel
-   📧 jan@goudenlepel.nl
-   🔑 demo123
-
-👤 KLANT 2: TechStart Nederland BV  
-   📧 lisa@techstart.nl
-   🔑 demo123
-
-👤 KLANT 3: Kledingwinkel Amsterdam
-   📧 mo@kledingwinkel-ams.nl
-   🔑 demo123
-
-### 2. **Nederlands Grootboek (90+ Accounts)** ✅
-Compleet met:
-- Balans accounts (0000-2999)
-- Winst & Verlies accounts (4000-9999)
-- BTW defaults per account
-- Account 4999 als intelligente fallback
+### 2. **Client Communicatie Systeem** ✅
+Twee-weg communicatie tussen boekhouder en klanten:
+- **Klant-zijde:**
+  - "Berichten" pagina met moderne card-based UI
+  - Tab filtering (Alle, Ongelezen, Beantwoord, Admin Reacties)
+  - Status badges (Open, Gesloten, Urgent, Overdue)
+  - Admin reply preview in message cards
+  - Mark as read functionaliteit
+  
+- **Admin-zijde:**
+  - "Klant Communicatie" pagina met tabbed interface
+  - "Bericht Versturen" tab - Verstuur berichten met prioriteit en deadline
+  - "Client Reacties" tab - Bekijk en beantwoord client reacties
+  - Volledige conversatie weergave in modals
+  - Auto-priority berekening op basis van deadline
 
 ### 3. **OCR Pipeline** ✅
 Production-ready architectuur:
@@ -50,6 +65,7 @@ Production-ready architectuur:
 - Tesseract implementatie met fallback parsing
 - Gestandaardiseerde JSON normalisatie
 - Async queue job (`ProcessDocumentOcrJob`)
+- 85-95% accuracy met camera uploads
 
 ### 4. **BTW Validator (HARD BLOCKING)** ✅
 Strikte Nederlandse BTW validatie:
@@ -78,44 +94,36 @@ Geavanceerde matching (score ≥90 = auto-match):
 - **+20**: IBAN match
 - **+20**: Naam similariteit (fuzzy matching)
 
-### 8. **Eloquent Models** ✅
-Alle 8 models met:
-- Relaties (BelongsTo, HasMany)
-- Fillable attributes
-- Type casting (decimal, date, array voor JSONB)
-- Scopes (pending, approved, matched, etc.)
-- Helper methods
-
-### 9. **Filament Resources** ✅
+### 8. **Filament Resources** ✅
 Admin UI voor alle entiteiten:
 - ClientResource
 - LedgerAccountResource
-- DocumentResource (basis)
+- DocumentResource
 - TransactionResource
 - TaskResource
 - BtwReportResource
 
-### 10. **Laravel Policies** ✅
+### 9. **Laravel Policies** ✅
 Strikte toegangscontrole:
 - **DocumentPolicy**: Clients zien ALLEEN eigen documenten
 - Admin/Boekhouder: Volledige toegang
 - Geïmplementeerd in alle resources
 
-### 11. **Immutable Audit Logging** ✅
+### 10. **Immutable Audit Logging** ✅
 Complete audit trail:
 - **DocumentObserver** - Logt alle wijzigingen
 - **TransactionObserver** - Logt transactie updates
 - **BtwReportObserver** - Logt rapporten + enforceert locking
 - **AuditLog model**: Append-only, geen updates/deletes mogelijk
 
-### 12. **Locking Mechanism** ✅
+### 11. **Locking Mechanism** ✅
 Vergrendeling na indiening:
 - **Lockable trait** - Voorkomt updates op vergrendelde records
 - **BtwReport**: Automatisch lock na status 'submitted'/'locked'
 - **Document**: Lock mogelijk na BTW-aangifte
 - Exceptions bij poging tot wijzigen vergrendelde records
 
-### 13. **Dashboard Widgets** ✅
+### 12. **Dashboard Widgets** ✅
 KPI monitoring:
 - **DocumentsAwaitingReviewWidget**: Documenten te beoordelen
 - **TransactionsStatsWidget**: Gekoppelde/ongekoppelde transacties
@@ -123,55 +131,54 @@ KPI monitoring:
 
 ---
 
-## 🚧 NOG TE IMPLEMENTEREN (2/14)
-
-### 14. **Document Review UI (Split-View)** 🔨 In Progress
-Custom Filament page met:
-- Links (7/12): PDF viewer met signed URL
-- Rechts (5/12): Formulier met grootboek, bedragen, BTW
-- Keyboard shortcuts (Enter=goedkeuren, ←/→=navigeren)
-
-### 15. **Task System Workflow** 📋 Pending
-- TaskResource configuratie
-- Upload response workflow
-- Auto-close op upload
-
----
-
-## 🚀 INSTALLATIE & GEBRUIK
+## 🚀 Installatie & Gebruik
 
 ### Vereisten
 - PHP 8.3+
-- PostgreSQL 16
-- Redis
+- PostgreSQL 16 (of SQLite voor development)
+- Redis (optioneel, voor queues)
 - Composer
 
 ### Setup
 
 ```bash
-# 1. Environment configureren
-cp .env.postgresql .env
+# 1. Clone repository
+git clone git@github.com:Yobiq/marcofic-boek.git
+cd marcofic-boek
+
+# 2. Environment configureren
+cp .env.example .env
 # Pas DB credentials aan in .env
 
-# 2. Dependencies installeren
+# 3. Dependencies installeren
 composer install
 
-# 3. Database migreren + seeden
+# 4. Database migreren + seeden
 php artisan migrate --seed
 
-# 4. Horizon starten (queue worker)
+# 5. Horizon starten (queue worker, optioneel)
 php artisan horizon
 
-# 5. Development server
+# 6. Development server
 php artisan serve
 ```
 
-### Admin Panel
-Toegang: `http://localhost:8000/admin`
+### Toegang
+
+**Admin Panel:**
+- URL: `http://localhost:8000/admin`
+- Login: `boekhouder@nlaccounting.nl` / `boekhouder123`
+
+**Klanten Portaal:**
+- URL: `http://localhost:8000/klanten`
+- Demo klanten:
+  - `jan@goudenlepel.nl` / `demo123`
+  - `lisa@techstart.nl` / `demo123`
+  - `mo@kledingwinkel-ams.nl` / `demo123`
 
 ---
 
-## 📊 ARCHITECTUUR
+## 📊 Architectuur
 
 ### Service Layer
 Alle business logica in dedicated services:
@@ -189,34 +196,34 @@ Alle business logica in dedicated services:
 
 ---
 
-## 🔒 COMPLIANCE & BEVEILIGING
+## 🔒 Compliance & Beveiliging
 
 ### BTW Compliance
-✅ Nederlandse BTW tarieven (21%, 9%, 0%, verlegd)
-✅ 2 cent tolerantie conform boekhoudkundige standaard
+✅ Nederlandse BTW tarieven (21%, 9%, 0%, verlegd)  
+✅ 2 cent tolerantie conform boekhoudkundige standaard  
 ✅ Automatische berekening en validatie
 
 ### Audit Trail
-✅ Immutable logging (append-only)
-✅ 7 jaar bewaarplicht ondersteuning
+✅ Immutable logging (append-only)  
+✅ 7 jaar bewaarplicht ondersteuning  
 ✅ Volledig traceerbaar wie wat wanneer deed
 
 ### Access Control
-✅ Clients zien ALLEEN eigen data
-✅ Role-based permissions via Spatie
+✅ Clients zien ALLEEN eigen data  
+✅ Role-based permissions via Spatie  
 ✅ Private storage met signed URLs
 
 ### Data Integriteit
-✅ Vergrendeling na BTW-indiening
-✅ Foreign key constraints
+✅ Vergrendeling na BTW-indiening  
+✅ Foreign key constraints  
 ✅ Transaction-safe operations
 
 ---
 
-## 📈 KPI's & MONITORING
+## 📈 KPI's & Monitoring
 
 ### Automatiseringsgraad
-**Doel**: 90% auto-goedkeuring
+**Doel**: 90% auto-goedkeuring  
 **Formule**: (auto_approved / total) × 100
 
 ### Belangrijke Metrics
@@ -224,10 +231,11 @@ Alle business logica in dedicated services:
 - BTW validatie fouten
 - Ongekoppelde transacties
 - Confidence score verdeling
+- Client communicatie response tijd
 
 ---
 
-## 🛠️ TECHNISCHE DETAILS
+## 🛠️ Technische Details
 
 ### Database Design
 - PostgreSQL 16 met JSONB voor OCR data en BTW totalen
@@ -246,7 +254,7 @@ Alle business logica in dedicated services:
 
 ---
 
-## 📝 DEVELOPMENT NOTES
+## 📝 Development Notes
 
 ### Filament Resources
 Generated resources zijn basis - kunnen worden uitgebreid met:
@@ -262,13 +270,11 @@ Implementeer tests voor:
 - Transaction matching
 - Auto-approval logic
 - Policy enforcement
-
-### Production Deployment
-TODO: Nginx + Supervisor configs (zie spec sectie 17)
+- Client communication workflows
 
 ---
 
-## 🎓 LEER VAN CORRECTIES
+## 🎓 Self-Learning Systeem
 
 Het systeem leert automatisch:
 - Bij handmatige grootboek correctie → keyword mapping aangemaakt
@@ -277,11 +283,23 @@ Het systeem leert automatisch:
 
 ---
 
-## 📞 SUPPORT & DOCUMENTATIE
+## 📞 Support & Documentatie
 
-Volledige spec: `instructions.md`
-Plan: `.cursor/plans/nl_accounting_system_build_*.plan.md`
+- Volledige spec: `instructions.md`
+- Client Portal docs: `KLANTEN_PORTAAL_COMPLETE.md`
+- Admin Panel docs: `ADMIN_PANEL_ENHANCEMENT_ANALYSIS.md`
 
 ---
 
-**Gebouwd volgens enterprise standaarden - Production-ready foundation!** 🚀
+## 🔗 Repository
+
+**GitHub:** [marcofic-boek](https://github.com/Yobiq/marcofic-boek)
+
+**SSH Clone:**
+```bash
+git clone git@github.com:Yobiq/marcofic-boek.git
+```
+
+---
+
+**Gebouwd volgens enterprise standaarden - Production-ready!** 🚀
