@@ -1,0 +1,112 @@
+/* MARCOFIC Admin Panel Custom Styles */
+
+:root {
+    --marcofic-primary: #059669;
+    --marcofic-primary-dark: #047857;
+    --marcofic-success: #10b981;
+    --marcofic-warning: #f59e0b;
+    --marcofic-danger: #ef4444;
+}
+
+/* Enhanced typography */
+.fi-body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Custom navigation styling */
+.fi-sidebar-nav {
+    background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+}
+
+.dark .fi-sidebar-nav {
+    background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+}
+
+/* Enhanced table styling */
+.fi-ta-table {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+/* Custom badge colors */
+.fi-badge {
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.375rem;
+}
+
+/* Enhanced card styling */
+.fi-section {
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Custom button styles */
+.fi-btn-primary {
+    background: var(--marcofic-primary);
+    transition: all 0.2s;
+}
+
+.fi-btn-primary:hover {
+    background: var(--marcofic-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced form inputs */
+.fi-input {
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+}
+
+.fi-input:focus {
+    border-color: var(--marcofic-primary);
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #475569;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--marcofic-primary);
+}
+
+/* Enhanced widget styling */
+.fi-wi-stats-overview-stat {
+    border-radius: 0.75rem;
+    transition: transform 0.2s;
+}
+
+.fi-wi-stats-overview-stat:hover {
+    transform: translateY(-2px);
+}
+
+/* Print optimizations */
+@media print {
+    .fi-sidebar,
+    .fi-header,
+    .fi-actions {
+        display: none !important;
+    }
+}
+

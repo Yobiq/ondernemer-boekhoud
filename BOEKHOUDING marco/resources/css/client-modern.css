@@ -1,0 +1,380 @@
+/* Modern MARCOFIC Client Portal Styles */
+
+/* Enhanced Collapsible Sidebar */
+.fi-sidebar {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border-right: 1px solid rgb(229, 231, 235) !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%) !important;
+}
+
+.dark .fi-sidebar {
+    border-right-color: rgb(55, 65, 81) !important;
+    background: linear-gradient(180deg, #1f2937 0%, #111827 100%) !important;
+}
+
+/* Sidebar Navigation Items */
+.fi-sidebar-nav-item {
+    border-radius: 12px !important;
+    margin: 0.25rem 0.5rem !important;
+    transition: all 0.2s !important;
+}
+
+.fi-sidebar-nav-item:hover {
+    transform: translateX(4px) !important;
+    background: rgba(59, 130, 246, 0.1) !important;
+}
+
+.fi-sidebar-nav-item-active {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+}
+
+.fi-sidebar-nav-item-active:hover {
+    transform: translateX(0) !important;
+}
+
+/* Sidebar Icons */
+.fi-sidebar-nav-item-icon {
+    transition: all 0.2s !important;
+}
+
+.fi-sidebar-nav-item:hover .fi-sidebar-nav-item-icon {
+    transform: scale(1.1) !important;
+}
+
+/* Sidebar Collapse Button */
+.fi-sidebar-collapse-button {
+    border-radius: 12px !important;
+    transition: all 0.2s !important;
+}
+
+.fi-sidebar-collapse-button:hover {
+    background: rgba(59, 130, 246, 0.1) !important;
+    transform: scale(1.05) !important;
+}
+
+/* Sidebar Groups */
+.fi-sidebar-group {
+    margin-bottom: 1.5rem !important;
+}
+
+.fi-sidebar-group-label {
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: #6b7280 !important;
+    padding: 0.5rem 1rem !important;
+}
+
+.dark .fi-sidebar-group-label {
+    color: #9ca3af !important;
+}
+
+/* Main Content Area */
+.fi-main {
+    background: #f9fafb !important;
+    min-height: 100vh !important;
+}
+
+.dark .fi-main {
+    background: #111827 !important;
+}
+
+/* Page Container */
+.fi-page {
+    max-width: 100% !important;
+    padding: 1.5rem !important;
+}
+
+@media (min-width: 1024px) {
+    .fi-page {
+        padding: 2rem !important;
+    }
+}
+
+/* Topbar */
+.fi-topbar {
+    background: #ffffff !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.dark .fi-topbar {
+    background: #1f2937 !important;
+    border-bottom-color: #374151 !important;
+}
+
+/* User Menu */
+.fi-user-menu-button {
+    border-radius: 12px !important;
+    transition: all 0.2s !important;
+}
+
+.fi-user-menu-button:hover {
+    background: rgba(59, 130, 246, 0.1) !important;
+    transform: scale(1.05) !important;
+}
+
+/* Notifications */
+.fi-topbar-item {
+    border-radius: 12px !important;
+    transition: all 0.2s !important;
+}
+
+.fi-topbar-item:hover {
+    background: rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Widget Enhancements */
+.fi-wi {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+}
+
+.fi-section {
+    border-radius: 16px !important;
+    border: 1px solid #e5e7eb !important;
+    background: #ffffff !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.2s !important;
+}
+
+.dark .fi-section {
+    background: #1f2937 !important;
+    border-color: #374151 !important;
+}
+
+.fi-section:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Section Headers */
+.fi-section-header {
+    padding: 1.25rem !important;
+    border-bottom: 1px solid #e5e7eb !important;
+}
+
+.dark .fi-section-header {
+    border-bottom-color: #374151 !important;
+}
+
+.fi-section-heading {
+    font-size: 1.125rem !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+}
+
+.dark .fi-section-heading {
+    color: #f9fafb !important;
+}
+
+/* Tables */
+.fi-ta {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+
+.fi-ta-row:hover {
+    background: rgba(59, 130, 246, 0.05) !important;
+}
+
+/* Buttons */
+.fi-btn {
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s !important;
+}
+
+.fi-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.fi-btn-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Forms */
+.fi-input {
+    border-radius: 10px !important;
+    border: 1px solid #e5e7eb !important;
+    transition: all 0.2s !important;
+}
+
+.dark .fi-input {
+    border-color: #374151 !important;
+    background: #1f2937 !important;
+}
+
+.fi-input:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Badges */
+.fi-badge {
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    padding: 0.375rem 0.75rem !important;
+}
+
+/* Modals */
+.fi-modal {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #475569;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* Loading States */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.loading-shimmer {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(
+        to right,
+        #f3f4f6 0%,
+        #e5e7eb 20%,
+        #f3f4f6 40%,
+        #f3f4f6 100%
+    );
+    background-size: 1000px 100%;
+}
+
+.dark .loading-shimmer {
+    background: linear-gradient(
+        to right,
+        #1f2937 0%,
+        #374151 20%,
+        #1f2937 40%,
+        #1f2937 100%
+    );
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+    .fi-sidebar {
+        position: fixed !important;
+        z-index: 40 !important;
+    }
+    
+    .fi-page {
+        padding: 1rem !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .fi-sidebar,
+    .fi-topbar,
+    .fi-btn,
+    .no-print {
+        display: none !important;
+    }
+    
+    .fi-page {
+        padding: 0 !important;
+    }
+    
+    .fi-section {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+}
+
+/* Accessibility */
+.fi-fo-field-wrp:focus-within {
+    outline: 2px solid #3b82f6 !important;
+    outline-offset: 2px !important;
+    border-radius: 10px !important;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .fi-sidebar,
+    .fi-section,
+    .fi-input {
+        border-width: 2px !important;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
